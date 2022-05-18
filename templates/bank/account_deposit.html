@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Account Deposit
+        </title>
+    </head>
+    <body>
+        <center>
+            <h1>
+                Account Deposit
+            </h1>
+            <hr/>
+            <form method="POST" > {% csrf_token %}
+                Amount <br>
+                {{form1.ip_deposit_amount}} <br>
+                To: <br> 
+                {{form1.ip_bankid}}
+                {{form1.ip_accountid}} <br> <br>
+                <input type="submit" value="deposit" />
+            </form>
+            {% if messages %}
+                {% for displaydata in messages %}
+                <h3 style="color: green;">{{ displaydata }}</h3>
+                {% endfor %}
+            {% endif %}
+            <h3>
+                <a href="../">Back to Menu</a>
+            </h3>
+        </center>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#id_ip_bankid').select2();
+                $('#id_ip_accountid').select2();
+            });
+        </script>
+        <style>
+            #id_ip_bankid {
+                width: 10%
+            }
+            #id_ip_accountid {
+                width: 15%
+            }
+        </style>
+    </body>
+</html>

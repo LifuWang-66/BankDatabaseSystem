@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>
+            {{ title }}
+        </title>
+    </head>
+    <body>
+        <center>
+            <h1>
+                {{ title }}
+            </h1>
+            <table border="1" id="bank_stats_table", class="display">
+                <thead>
+                    <tr>
+                        {% for column in columns %}
+                        <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                    <tr>
+                        {% for field in result %}
+                        <th>{{field}}</th>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                
+            </table>
+            <h3>
+                <a href="../">Back to Menu</a>
+            </h3>
+        </center>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready( function () {
+                $('#bank_stats_table').DataTable();
+            } );
+        </script>
+    </body>
+</html>

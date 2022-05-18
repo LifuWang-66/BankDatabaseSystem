@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Manage Overdraft Policies
+        </title>
+    </head>
+    <body>
+        <center>
+            <h1>
+                Manage Overdraft Policies
+            </h1>
+            <hr/>
+            <form method="POST"> {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Save" />
+            </form>
+            {% if messages %}
+                {% for displaydata in messages %}
+                <h3 style="color: red;">{{ displaydata }}</h3>
+                {% endfor %}
+            {% endif %}
+
+            <h3>
+                <a href="../">Back to Menu</a>
+            </h3>
+        </center>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#id_ip_checking_bankid').select2();
+            $('#id_ip_checking_accountid').select2();
+            $('#id_ip_savings_accountid').select2();
+            $('#id_ip_savings_bankid').select2();
+        });
+    </script>
+    <style>
+        #id_ip_checking_accountid {
+            width: 10%
+        }
+    </style>
+    </body>
+</html>

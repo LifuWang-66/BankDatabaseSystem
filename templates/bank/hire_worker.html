@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Hire Worker
+        </title>
+    </head>
+    <body>
+        <center>
+            <h1>
+                Hire Worker
+            </h1>
+            <hr/>
+            <form method="POST"> {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Save" />
+            </form>
+            {% if messages %}
+                {% for displaydata in messages %}
+                <h3 style="color: red;">{{ displaydata }}</h3>
+                {% endfor %}
+            {% endif %}
+            <h3>
+                <a href="../">Back to Menu</a>
+            </h3>
+        </center>
+
+    </body>
+</html>
